@@ -28,7 +28,10 @@ public class Nhanvien {
     // Phương thức tăng hệ số lương của nhân viên
     public boolean tangLuong(double tangHeSoLuong) {
         double newHeSoLuong = heSoLuong + tangHeSoLuong;
+        double heSoCu = heSoLuong;
+        this.heSoLuong = newHeSoLuong;
         if (tinhLuongMax(newHeSoLuong)) { // Kiểm tra lương của nhân viên có vượt quá lương tối đa không
+            this.heSoLuong = heSoCu;
             return false;
         }
         heSoLuong = newHeSoLuong;
@@ -37,7 +40,7 @@ public class Nhanvien {
 
     // Phương thức tính lương tối đa của nhân viên khi thay đổi hệ số lương
     private boolean tinhLuongMax(double newHeSoLuong) {
-        return tinhLuong() > Luong_max && tinhLuong(newHeSoLuong) > Luong_max;
+        return tinhLuong() > Luong_max;
     }
 
     // Các phương thức get và set cho các thuộc tính của lớp Nhanvien
